@@ -15,13 +15,13 @@ class PeopleCard extends StatefulWidget {
 class _PeopleCardState extends State<PeopleCard>
     with SingleTickerProviderStateMixin {
   int tabIndex = 1;
-
+  int tabSelectedIndex = 0;
   TabController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = new TabController(vsync: this, length: 3);
+    controller = new TabController(vsync: this, length: 5);
   }
 
   @override
@@ -70,35 +70,92 @@ class _PeopleCardState extends State<PeopleCard>
                   width: 300,
                   height: 150,
                   child: DefaultTabController(
-                    length: 3,
+                    length: 5,
                     child: Scaffold(
                       backgroundColor: Colors.transparent,
                       body: TabBarView(
                         controller: controller,
                         children: [
-                          Text("1"),
-                          Text("2"),
-                          Text("3"),
+                          Center(
+                            child: Text(
+                              "${widget.people.name.title} ${widget.people.name.first} ${widget.people.name.last}",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              widget.people.dob,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "${widget.people.location.street} ${widget.people.location.city} ${widget.people.location.state}",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "${widget.people.phone}\n${widget.people.cell}",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              widget.people.login.username,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       bottomNavigationBar: TabBar(
                         controller: controller,
                         tabs: [
                           Tab(
-                              icon: new Icon(
-                            Icons.home,
-                            color: Colors.grey,
-                          )),
+                            icon: new Icon(
+                              Icons.account_circle,
+                              color: Colors.grey,
+                            ),
+                          ),
                           Tab(
-                              icon: new Icon(
-                            Icons.rss_feed,
-                            color: Colors.grey,
-                          )),
+                            icon: new Icon(
+                              Icons.calendar_today,
+                              color: Colors.grey,
+                            ),
+                          ),
                           Tab(
-                              icon: new Icon(
-                            Icons.settings,
-                            color: Colors.grey,
-                          ))
+                            icon: new Icon(
+                              Icons.map,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Tab(
+                            icon: new Icon(
+                              Icons.call,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Tab(
+                            icon: new Icon(
+                              Icons.lock_outline,
+                              color: Colors.grey,
+                            ),
+                          )
                         ],
                         indicatorSize: TabBarIndicatorSize.tab,
                         indicatorColor: Colors.green,
