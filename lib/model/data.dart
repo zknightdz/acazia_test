@@ -18,14 +18,15 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-    results: List<People>.from(json["results"].map((x) => People.fromJson(x))),
-    info: Info.fromJson(json["info"]),
-  );
+        results:
+            List<People>.from(json["results"].map((x) => People.fromJson(x))),
+        info: Info.fromJson(json["info"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "results": List<dynamic>.from(results.map((x) => x.toJson())),
-    "info": info.toJson(),
-  };
+        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+        "info": info.toJson(),
+      };
 }
 
 class Info {
@@ -42,18 +43,18 @@ class Info {
   });
 
   factory Info.fromJson(Map<String, dynamic> json) => Info(
-    seed: json["seed"],
-    results: json["results"],
-    page: json["page"],
-    version: json["version"],
-  );
+        seed: json["seed"],
+        results: json["results"],
+        page: json["page"],
+        version: json["version"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "seed": seed,
-    "results": results,
-    "page": page,
-    "version": version,
-  };
+        "seed": seed,
+        "results": results,
+        "page": page,
+        "version": version,
+      };
 }
 
 class People {
@@ -86,34 +87,43 @@ class People {
   });
 
   factory People.fromJson(Map<String, dynamic> json) => People(
-    gender: json["gender"],
-    name: Name.fromJson(json["name"]),
-    location: Location.fromJson(json["location"]),
-    email: json["email"],
-    login: Login.fromJson(json["login"]),
-    dob: json["dob"],
-    registered: json["registered"],
-    phone: json["phone"],
-    cell: json["cell"],
-    id: Id.fromJson(json["id"]),
-    picture: Picture.fromJson(json["picture"]),
-    nat: json["nat"],
-  );
+        gender: json["gender"],
+        name: Name.fromJson(json["name"]),
+        location: Location.fromJson(json["location"]),
+        email: json["email"],
+        login: Login.fromJson(json["login"]),
+        dob: json["dob"],
+        registered: json["registered"],
+        phone: json["phone"],
+        cell: json["cell"],
+        id: Id.fromJson(json["id"]),
+        picture: Picture.fromJson(json["picture"]),
+        nat: json["nat"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "gender": gender,
-    "name": name.toJson(),
-    "location": location.toJson(),
-    "email": email,
-    "login": login.toJson(),
-    "dob": dob,
-    "registered": registered,
-    "phone": phone,
-    "cell": cell,
-    "id": id.toJson(),
-    "picture": picture.toJson(),
-    "nat": nat,
-  };
+        "gender": gender,
+        "name": name.toJson(),
+        "location": location.toJson(),
+        "email": email,
+        "login": login.toJson(),
+        "dob": dob,
+        "registered": registered,
+        "phone": phone,
+        "cell": cell,
+        "id": id.toJson(),
+        "picture": picture.toJson(),
+        "nat": nat,
+      };
+
+  Map<String, dynamic> toMap() => {
+        "id": id.value,
+        "name": name.last,
+        "dob": dob,
+        "phone": phone,
+        "email": email,
+        "location": location.street,
+      };
 }
 
 class Id {
@@ -126,14 +136,14 @@ class Id {
   });
 
   factory Id.fromJson(Map<String, dynamic> json) => Id(
-    name: json["name"],
-    value: json["value"],
-  );
+        name: json["name"],
+        value: json["value"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "name": name,
-    "value": value,
-  };
+        "name": name,
+        "value": value,
+      };
 }
 
 class Location {
@@ -150,18 +160,18 @@ class Location {
   });
 
   factory Location.fromJson(Map<String, dynamic> json) => Location(
-    street: json["street"],
-    city: json["city"],
-    state: json["state"],
-    postcode: json["postcode"],
-  );
+        street: json["street"],
+        city: json["city"],
+        state: json["state"],
+        postcode: json["postcode"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "street": street,
-    "city": city,
-    "state": state,
-    "postcode": postcode,
-  };
+        "street": street,
+        "city": city,
+        "state": state,
+        "postcode": postcode,
+      };
 }
 
 class Login {
@@ -182,22 +192,22 @@ class Login {
   });
 
   factory Login.fromJson(Map<String, dynamic> json) => Login(
-    username: json["username"],
-    password: json["password"],
-    salt: json["salt"],
-    md5: json["md5"],
-    sha1: json["sha1"],
-    sha256: json["sha256"],
-  );
+        username: json["username"],
+        password: json["password"],
+        salt: json["salt"],
+        md5: json["md5"],
+        sha1: json["sha1"],
+        sha256: json["sha256"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "username": username,
-    "password": password,
-    "salt": salt,
-    "md5": md5,
-    "sha1": sha1,
-    "sha256": sha256,
-  };
+        "username": username,
+        "password": password,
+        "salt": salt,
+        "md5": md5,
+        "sha1": sha1,
+        "sha256": sha256,
+      };
 }
 
 class Name {
@@ -212,16 +222,16 @@ class Name {
   });
 
   factory Name.fromJson(Map<String, dynamic> json) => Name(
-    title: json["title"],
-    first: json["first"],
-    last: json["last"],
-  );
+        title: json["title"],
+        first: json["first"],
+        last: json["last"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "title": title,
-    "first": first,
-    "last": last,
-  };
+        "title": title,
+        "first": first,
+        "last": last,
+      };
 }
 
 class Picture {
@@ -236,14 +246,14 @@ class Picture {
   });
 
   factory Picture.fromJson(Map<String, dynamic> json) => Picture(
-    large: json["large"],
-    medium: json["medium"],
-    thumbnail: json["thumbnail"],
-  );
+        large: json["large"],
+        medium: json["medium"],
+        thumbnail: json["thumbnail"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "large": large,
-    "medium": medium,
-    "thumbnail": thumbnail,
-  };
+        "large": large,
+        "medium": medium,
+        "thumbnail": thumbnail,
+      };
 }
